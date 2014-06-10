@@ -2,7 +2,14 @@ package com.ag.domain.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 /**
  * Entity implementation class for Entity: User
@@ -14,27 +21,26 @@ public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	public User() {
-		super();
-	}
+	public static final Integer CashUser = 10;
+
 	
 	private Integer id;
 	
 	/**
-	 * �û���
+	 * 用户名
 	 */
 	private String userName;
 	
 	/**
-	 * ����
+	 * 密码
 	 */
 	private String password;
 	
 	/**
-	 * �û�����
-	 * 10���ֽ��Ա
-	 * 20�����û�Ա
-	 * 30�������Ա
+	 * 用户类型
+	 * 10现金会员
+	 * 20信用会员
+	 * 30试玩会员
 	 */
 	private Integer userType;
 	
@@ -42,9 +48,9 @@ public class User implements Serializable {
 	private Timestamp createTime;
 	
 	/**
-	 * �û�Ǯ��
+	 * 会员钱包
 	 * */
-	private Wallet wallet;
+	private List<Wallet> wallets;
 	
 	/*非数据库字段*/
 	private String checkCode;
@@ -83,14 +89,13 @@ public class User implements Serializable {
 		this.createTime = createTime;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public Wallet getWallet() {
-		return wallet;
+	@OneToMany
+	public List<Wallet> getWallets() {
+		return wallets;
 	}
 
-	public void setWallet(Wallet wallet) {
-		this.wallet = wallet;
+	public void setWallets(List<Wallet> wallets) {
+		this.wallets = wallets;
 	}
 
 	public Integer getUserType() {

@@ -14,7 +14,11 @@ import nl.captcha.Captcha;
 import nl.captcha.backgrounds.GradiatedBackgroundProducer;
 import nl.captcha.servlet.CaptchaServletUtil;
 import nl.captcha.text.producer.DefaultTextProducer;
-
+/**
+ * 
+ * @author fb421
+ * 添加验证码服务
+ */
 @WebServlet(urlPatterns="/captcha")
 public class CaptchaServlet implements Servlet {
 	

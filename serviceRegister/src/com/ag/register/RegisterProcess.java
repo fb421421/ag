@@ -20,6 +20,10 @@ import com.ag.domain.exception.InvalidUserNameFormatException;
 import com.ag.domain.exception.NullCheckCodeException;
 import com.ag.domain.exception.NullPasswordException;
 import com.ag.domain.exception.NullUserNameException;
+import com.ag.domain.util.DateUtil;
+import com.ag.domain.util.DigestUtil;
+import com.ag.domain.util.IpUtil;
+import com.ag.domain.util.RSAUtils;
 
 
 @Stateless
@@ -43,12 +47,23 @@ public class RegisterProcess {
 		
 		try {
 			
+			/*检查密码是否经过AES加密，如果有加密则解密*/
+			user.setPassword(RSAUtils.checkAndDecrypt(user.getPassword()));
+			
 			/*用户注册信息验证*/
 			RegisterRule.validteCheckCode(request, user.getCheckCode());
 			RegisterRule.validteUserName(user.getUserName());
 			RegisterRule.validtePassword(user.getPassword());
 			
+			/*加密密码*/
+			user.setPassword(DigestUtil.sha256_base64(user.getPassword()));
+			
+			/*记录IP*/
+			user.setRegisterIp(IpUtil.getIp(request));
+			
 			/*保存用户*/
+			user.setCreateTime(DateUtil.getCurrentTimestamp());
+			user.setUserType(User.CashUser);
 			entityManager.persist(user);
 			
 		} catch (NullCheckCodeException e) {

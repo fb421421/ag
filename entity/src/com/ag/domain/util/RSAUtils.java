@@ -75,10 +75,20 @@ public class RSAUtils {
 		return decryptedData;
 	}
 	
+	/*如果一个字符串长度大于50个就解密*/
+	public static String checkAndDecrypt( String encryptedData ){
+		
+		if(encryptedData.length()>50){
+			return decrypt(encryptedData);
+		}
+		 
+		return encryptedData;
+	}
 	
-	public static void main(String[] args) {
-		/*私钥转der工具openssl pkcs8 -topk8 -nocrypt -inform pem -in private.pem  -outform der  -out  private.der*/
+	
+/*	public static void main(String[] args) {
+		私钥转der工具openssl pkcs8 -topk8 -nocrypt -inform pem -in private.pem  -outform der  -out  private.der
 		String password="SW0RmHX4HT9kqrGaIOoonKnbXiuGTQnvDxM6+uXYWoWp0tp7RNuLi+f1k0EYB4TRnYR1pVKcm+VOKZJdVSEMU0CwrtXKGX0mcac6Z9pz64RTmFi+6YEyocESYZypkwWc/92zhI6g6eZoWclzCG3mZ/dg/r8PPp8S/iE3WTZhfcjQvuTxRr6S0jkymJntDqcsd/oR4JVTL82BMiN229UHe9CWD44CeGaCaJSGQjm7GGuYZihGSSJk/1UUdh/Ty9NhynqdeV5Ylls9DeFaP+CAuEwms/37OSD8GotXIBmRz5yDcPVjEtNkTSP4DXGT3a3R6oTLq64wMzTe0mfbI/giRA==";
 		System.out.println(decrypt(password));
-	}
+	}*/
 }

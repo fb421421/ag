@@ -7,8 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Wallet implements Serializable {
@@ -24,7 +23,7 @@ public class Wallet implements Serializable {
 	private Integer id;
 	
 	/**
-	 * ’Àªß”‡∂Ó
+	 * Ë¥¶Êà∑‰ΩôÈ¢ù
 	 */
 	private BigDecimal balance;
 	
@@ -41,18 +40,6 @@ public class Wallet implements Serializable {
 	}
 
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
 	public BigDecimal getBalance() {
 		return balance;
 	}
@@ -60,6 +47,16 @@ public class Wallet implements Serializable {
 
 	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
+	}
+
+	@ManyToOne
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }
