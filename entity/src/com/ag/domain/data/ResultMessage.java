@@ -1,4 +1,4 @@
-package com.ag.register.data;
+package com.ag.domain.data;
 
 import java.io.Serializable;
 

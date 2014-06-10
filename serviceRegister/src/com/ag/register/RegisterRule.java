@@ -2,8 +2,9 @@ package com.ag.register;
 
 import org.picketbox.util.StringUtil;
 
-import com.ag.register.exception.InvalidUserNameFormatException;
-import com.ag.register.exception.NullUserNameException;
+import com.ag.domain.exception.InvalidUserNameFormatException;
+import com.ag.domain.exception.NullUserNameException;
+
 
 public class RegisterRule {
 	

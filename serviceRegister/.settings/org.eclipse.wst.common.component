@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="serviceRegister">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="entity.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/entity/entity">
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/domain/domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="serviceRegister"/>

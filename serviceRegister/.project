@@ -3,7 +3,7 @@
 	<name>serviceRegister</name>
 	<comment></comment>
 	<projects>
-		<project>entity</project>
+		<project>domain</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

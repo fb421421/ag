@@ -1,4 +1,4 @@
-package com.ag.register.exception;
+package com.ag.domain.exception;
 
 public class NullUserNameException extends Exception {
 

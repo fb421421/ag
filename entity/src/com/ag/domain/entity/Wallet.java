@@ -1,4 +1,4 @@
-package com.ag.register.domain;
+package com.ag.domain.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

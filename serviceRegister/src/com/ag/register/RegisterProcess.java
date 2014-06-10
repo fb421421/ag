@@ -9,15 +9,20 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import com.ag.register.data.ResultMessage;
-import com.ag.register.domain.User;
-import com.ag.register.exception.InvalidUserNameFormatException;
-import com.ag.register.exception.NullUserNameException;
+import org.jboss.logging.Logger;
+
+import com.ag.domain.data.ResultMessage;
+import com.ag.domain.entity.User;
+import com.ag.domain.exception.InvalidUserNameFormatException;
+import com.ag.domain.exception.NullUserNameException;
+
 
 @Stateless
 @LocalBean
 @Path("/user")
 public class RegisterProcess {
+	
+	private static final Logger logger = Logger.getLogger(ResultMessage.class);
 	
 	@PersistenceContext(unitName="entity")
 	private EntityManager entityManager;
@@ -26,6 +31,7 @@ public class RegisterProcess {
 	@Produces("application/json")
 	@Consumes("application/json")
 	public ResultMessage startRegisterProcess( User user ){
+		
 		
 		ResultMessage resultMessage = new ResultMessage();
 		resultMessage.setStatus(ResultMessage.SUCCESS);
@@ -39,9 +45,11 @@ public class RegisterProcess {
 			entityManager.persist(user);
 			
 		}catch (NullUserNameException e) {
+			logger.error(e);
 			resultMessage.setStatus(ResultMessage.Error);
 			resultMessage.setErrorMessage(e.getClass().getSimpleName());
 		}catch (InvalidUserNameFormatException e) {
+			logger.error(e);
 			resultMessage.setStatus(ResultMessage.Error);
 			resultMessage.setErrorMessage(e.getClass().getSimpleName());
 		} 
