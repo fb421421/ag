@@ -1,0 +1,52 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	
+	<h1>注册模块接口说明</h1>
+	
+	<p>
+		1.获取验证码图片
+		<br>
+		请求地址：/serviceRegister/checkCode
+		<br>
+		请求方法：GET
+		<br>
+		URL参数：无
+		<br>
+		Data参数：无
+		<br>
+		成功返回：验证码图片
+		<br>
+		错误返回：异常页面
+		<br>
+		调用示例：/serviceRegister/checkCode
+		<br>
+		注意事项：无
+	</p>
+	
+	<p>
+		2.注册会员
+		<br>
+		请求地址：/serviceRegister/rest/user
+		<br>
+		请求方法：POST
+		<br>
+		URL参数：无
+		<br>
+		Data参数：{"userName":"nu2222ll","password":"111222333","checkCode":"6229"}
+		<br>
+		成功返回：HTTP CODE:200
+			  Content:{"status":1,"errorMessage":null}
+		<br>
+		错误返回：HTTP CODE:200
+			  Content:{"status":0,"errorMessage":"error message"}
+		<br>
+		调用示例：$.ajax({ url: "/serviceRegister/rest/user", dataType: "json", data :{"userName":"nu2222ll","password":"111222333","checkCode":"6229"} , type : "POST", success : function(r) { console.log(r); } });
+		<br>
+		注意事项：无
+	</p>
+	
+</body>
+</html>

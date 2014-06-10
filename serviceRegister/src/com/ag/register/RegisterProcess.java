@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -64,7 +63,6 @@ public class RegisterProcess {
 			user.setRegisterIp(IpUtil.getIp(request));
 			
 			/*添加钱包*/
-			Wallet wallet = new Wallet();
 			user.setWallet(new Wallet());
 			
 			/*保存用户*/
@@ -98,13 +96,6 @@ public class RegisterProcess {
 		return resultMessage;
 	}
 	
-
-	@GET
-	@Produces("application/json")
-	@Consumes("application/json")
-	public User  getUser( ){
-		return entityManager.find(User.class, 1);
-	}
 
 	public EntityManager getEntityManager() {
 		return entityManager;

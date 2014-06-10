@@ -46,6 +46,8 @@ public class User implements Serializable {
 	 */
 	private Integer userType;
 	
+	private Integer parentID;
+	
 	private String registerIp;
 	private Timestamp createTime;
 	
@@ -125,6 +127,14 @@ public class User implements Serializable {
 
 	public void setCheckCode(String checkCode) {
 		this.checkCode = checkCode;
+	}
+
+	public Integer getParentID() {
+		return parentID;
+	}
+
+	public void setParentID(Integer parentID) {
+		this.parentID = parentID;
 	}
 
    

@@ -19,7 +19,7 @@ import nl.captcha.text.producer.DefaultTextProducer;
  * @author fb421
  * 添加验证码服务
  */
-@WebServlet(urlPatterns="/captcha")
+@WebServlet(urlPatterns="/checkCode")
 public class CaptchaServlet implements Servlet {
 	
 	private static final char[] chars={'0','1','2','3','4','5','6','7','8','9'};
