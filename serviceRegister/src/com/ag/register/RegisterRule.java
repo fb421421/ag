@@ -3,6 +3,7 @@ package com.ag.register;
 import org.picketbox.util.StringUtil;
 
 import com.ag.domain.exception.InvalidUserNameFormatException;
+import com.ag.domain.exception.NullPasswordException;
 import com.ag.domain.exception.NullUserNameException;
 
 
@@ -18,6 +19,13 @@ public class RegisterRule {
 		
 		if(!userName.matches(USER_NAME_REGEX)){
 			throw new InvalidUserNameFormatException();
+		}
+	}
+	
+	public static void validtePassword( String password ) throws NullPasswordException{
+		
+		if(StringUtil.isNullOrEmpty(password)){
+			throw new NullPasswordException();
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package com.ag.register;
 
 import javax.ejb.LocalBean;
+import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,10 +15,11 @@ import org.jboss.logging.Logger;
 import com.ag.domain.data.ResultMessage;
 import com.ag.domain.entity.User;
 import com.ag.domain.exception.InvalidUserNameFormatException;
+import com.ag.domain.exception.NullPasswordException;
 import com.ag.domain.exception.NullUserNameException;
 
 
-@Stateless
+@Stateful
 @LocalBean
 @Path("/user")
 public class RegisterProcess {
@@ -26,6 +28,8 @@ public class RegisterProcess {
 	
 	@PersistenceContext(unitName="entity")
 	private EntityManager entityManager;
+	
+	private String checkCode;
 	
 	@POST
 	@Produces("application/json")
@@ -40,6 +44,7 @@ public class RegisterProcess {
 			
 			/*用户注册信息验证*/
 			RegisterRule.validteUserName(user.getUserName());
+			RegisterRule.validtePassword(user.getPassword());
 			
 			/*创建用户*/
 			entityManager.persist(user);
@@ -52,11 +57,24 @@ public class RegisterProcess {
 			logger.error(e);
 			resultMessage.setStatus(ResultMessage.Error);
 			resultMessage.setErrorMessage(e.getClass().getSimpleName());
+		} catch (NullPasswordException e) {
+			logger.error(e);
+			resultMessage.setStatus(ResultMessage.Error);
+			resultMessage.setErrorMessage(e.getClass().getSimpleName());
 		} 
 	
 		
 		return resultMessage;
 	}
+	
+
+	@POST
+	@Produces("application/json")
+	@Consumes("application/json")
+	public ResultMessage getCheckCode( ){
+		this.checkCode=r
+	}
+		
 
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -64,6 +82,14 @@ public class RegisterProcess {
 
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
+	}
+
+	public String getCheckCode() {
+		return checkCode;
+	}
+
+	public void setCheckCode(String checkCode) {
+		this.checkCode = checkCode;
 	} 
 	
 	
