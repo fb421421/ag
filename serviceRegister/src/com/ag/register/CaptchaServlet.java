@@ -33,7 +33,7 @@ public class CaptchaServlet implements Servlet {
 	public void service(ServletRequest req, ServletResponse res)
 			throws ServletException, IOException {
 		  Captcha captcha = new Captcha.Builder(90, 50).addText(new DefaultTextProducer(4,chars)).addBackground(new GradiatedBackgroundProducer()).build();
-		  ((HttpServletRequest)req).getSession().setAttribute("checkCode", captcha.getAnswer());
+		  ((HttpServletRequest)req).getSession(true).setAttribute("checkCode", captcha.getAnswer());
 		  CaptchaServletUtil.writeImage((HttpServletResponse)res, captcha.getImage());
 	}
 

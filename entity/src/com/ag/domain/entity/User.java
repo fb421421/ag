@@ -21,20 +21,20 @@ public class User implements Serializable {
 	private Integer id;
 	
 	/**
-	 * ÓÃ»§Ãû
+	 * ï¿½Ã»ï¿½ï¿½ï¿½
 	 */
 	private String userName;
 	
 	/**
-	 * ÃÜÂë
+	 * ï¿½ï¿½ï¿½ï¿½
 	 */
 	private String password;
 	
 	/**
-	 * ÓÃ»§ÀàĞÍ
-	 * 10£¬ÏÖ½ğ»áÔ±
-	 * 20£¬ĞÅÓÃ»áÔ±
-	 * 30£¬ÊÔÍæ»áÔ±
+	 * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * 10ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ô±
+	 * 20ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ô±
+	 * 30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
 	 */
 	private Integer userType;
 	
@@ -42,9 +42,12 @@ public class User implements Serializable {
 	private Timestamp createTime;
 	
 	/**
-	 * ÓÃ»§Ç®°ü
+	 * ï¿½Ã»ï¿½Ç®ï¿½ï¿½
 	 * */
 	private Wallet wallet;
+	
+	/*éæ•°æ®åº“å­—æ®µ*/
+	private String checkCode;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -104,6 +107,15 @@ public class User implements Serializable {
 
 	public void setRegisterIp(String registerIp) {
 		this.registerIp = registerIp;
+	}
+
+	@Transient
+	public String getCheckCode() {
+		return checkCode;
+	}
+
+	public void setCheckCode(String checkCode) {
+		this.checkCode = checkCode;
 	}
 	
    
