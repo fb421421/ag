@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Wallet implements Serializable {
@@ -27,8 +26,6 @@ public class Wallet implements Serializable {
 	 */
 	private BigDecimal balance;
 	
-	private User user;
-
 
 	public Integer getId() {
 		return id;
@@ -49,14 +46,5 @@ public class Wallet implements Serializable {
 		this.balance = balance;
 	}
 
-	@ManyToOne
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 	
 }

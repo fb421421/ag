@@ -2,13 +2,15 @@ package com.ag.domain.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 /**
@@ -50,7 +52,7 @@ public class User implements Serializable {
 	/**
 	 * 会员钱包
 	 * */
-	private List<Wallet> wallets;
+	private Wallet wallet;
 	
 	/*非数据库字段*/
 	private String checkCode;
@@ -89,14 +91,6 @@ public class User implements Serializable {
 		this.createTime = createTime;
 	}
 
-	@OneToMany
-	public List<Wallet> getWallets() {
-		return wallets;
-	}
-
-	public void setWallets(List<Wallet> wallets) {
-		this.wallets = wallets;
-	}
 
 	public Integer getUserType() {
 		return userType;
@@ -113,6 +107,16 @@ public class User implements Serializable {
 	public void setRegisterIp(String registerIp) {
 		this.registerIp = registerIp;
 	}
+	
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@JoinColumn(name="walletID")
+	public Wallet getWallet() {
+		return wallet;
+	}
+
+	public void setWallet(Wallet wallet) {
+		this.wallet = wallet;
+	}
 
 	@Transient
 	public String getCheckCode() {
@@ -122,6 +126,6 @@ public class User implements Serializable {
 	public void setCheckCode(String checkCode) {
 		this.checkCode = checkCode;
 	}
-	
+
    
 }

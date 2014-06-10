@@ -3,6 +3,7 @@
 	<persistence-unit name="entity">
 		<jta-data-source>java:jboss/datasources/agDS</jta-data-source>
 		<properties>
+			 <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 			<property name="hibernate.show_sql" value="true" />
 		</properties>

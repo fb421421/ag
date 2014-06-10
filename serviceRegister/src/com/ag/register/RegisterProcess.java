@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -15,6 +16,7 @@ import org.jboss.logging.Logger;
 
 import com.ag.domain.data.ResultMessage;
 import com.ag.domain.entity.User;
+import com.ag.domain.entity.Wallet;
 import com.ag.domain.exception.InvalidCheckCodeException;
 import com.ag.domain.exception.InvalidUserNameFormatException;
 import com.ag.domain.exception.NullCheckCodeException;
@@ -61,6 +63,10 @@ public class RegisterProcess {
 			/*记录IP*/
 			user.setRegisterIp(IpUtil.getIp(request));
 			
+			/*添加钱包*/
+			Wallet wallet = new Wallet();
+			user.setWallet(new Wallet());
+			
 			/*保存用户*/
 			user.setCreateTime(DateUtil.getCurrentTimestamp());
 			user.setUserType(User.CashUser);
@@ -93,7 +99,12 @@ public class RegisterProcess {
 	}
 	
 
-		
+	@GET
+	@Produces("application/json")
+	@Consumes("application/json")
+	public User  getUser( ){
+		return entityManager.find(User.class, 1);
+	}
 
 	public EntityManager getEntityManager() {
 		return entityManager;
