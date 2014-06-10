@@ -12,6 +12,7 @@ import javax.ws.rs.Produces;
 import com.ag.register.data.ResultMessage;
 import com.ag.register.domain.User;
 import com.ag.register.exception.InvalidUserNameFormatException;
+import com.ag.register.exception.NullUserNameException;
 
 @Stateless
 @LocalBean
@@ -37,10 +38,13 @@ public class RegisterProcess {
 			/*创建用户*/
 			entityManager.persist(user);
 			
-		} catch (InvalidUserNameFormatException e) {
+		}catch (NullUserNameException e) {
 			resultMessage.setStatus(ResultMessage.Error);
 			resultMessage.setErrorMessage(e.getClass().getSimpleName());
-		}
+		}catch (InvalidUserNameFormatException e) {
+			resultMessage.setStatus(ResultMessage.Error);
+			resultMessage.setErrorMessage(e.getClass().getSimpleName());
+		} 
 	
 		
 		return resultMessage;
