@@ -42,11 +42,11 @@ public class RegisterProcess {
 		
 		try {
 			
-			/*用户注册信息验证*/
+			/*鐢ㄦ埛娉ㄥ唽淇℃伅楠岃瘉*/
 			RegisterRule.validteUserName(user.getUserName());
 			RegisterRule.validtePassword(user.getPassword());
 			
-			/*创建用户*/
+			/*淇濆瓨鐢ㄦ埛*/
 			entityManager.persist(user);
 			
 		}catch (NullUserNameException e) {
@@ -68,12 +68,6 @@ public class RegisterProcess {
 	}
 	
 
-	@POST
-	@Produces("application/json")
-	@Consumes("application/json")
-	public ResultMessage getCheckCode( ){
-		this.checkCode=r
-	}
 		
 
 	public EntityManager getEntityManager() {
