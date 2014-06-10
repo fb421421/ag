@@ -24,12 +24,10 @@ public class RegisterProcess {
 	@POST
 	@Produces("application/json")
 	@Consumes("application/json")
-	@Path("/start")
 	public ResultMessage startRegisterProcess( User user ){
 		
 		ResultMessage resultMessage = new ResultMessage();
-		resultMessage.setStatus(ResultMessage.Error);
-		resultMessage.setErrorMessage(ResultMessage.UNKNOWN_ERROR);
+		resultMessage.setStatus(ResultMessage.SUCCESS);
 		
 		try {
 			

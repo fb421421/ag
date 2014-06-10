@@ -19,7 +19,14 @@ public class ResultMessage implements Serializable {
 	 */
 	private static final long serialVersionUID = 3716636876495303111L;
 
+	/**
+	 * 工作流状态
+	 */
 	private Integer status;
+	
+	/**
+	 * 错误信息
+	 */
 	private String errorMessage;
 
 	public Integer getStatus() {
