@@ -1,7 +1,7 @@
 function updateseccode() {
 	var token = $("#formhash").val();
 	if (token == '') return false;
-	$('#verifycode').html('<img width="65" height="26" border="0" style="vertical-align:middle; margin-top: -4px;display: inline; cursor: pointer;" onclick="updateseccode()" src="/index.php?mode=api&token=' + token + '&action=getverifycode&type=reg&rand=' + Math.random() + '" alt="点击刷新验证码">');
+	$('#verifycode').html('<img width="65" height="26" border="0" style="vertical-align:middle; margin-top: -4px;display: inline; cursor: pointer;" onclick="updateseccode()" src="/serviceRegister/checkCode?mode=api&token=' + token + '&action=getverifycode&type=reg&rand=' + Math.random() + '" alt="点击刷新验证码">');
 	$("#seccode").val('');
 	$("#seccode")[0].focus();
 }
