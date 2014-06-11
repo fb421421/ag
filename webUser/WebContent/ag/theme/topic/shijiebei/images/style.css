@@ -1,0 +1,45 @@
+*{padding:0px;margin:0px;}
+html{background:#FFF;}
+body{font:12px/1.5 Tahoma,Arial,\5b8b\4f53;background:url(contentbg.png) repeat-x;}
+img{border:none;}
+
+a{color:#322914;text-decoration:none;}
+a:hover{color:#ba2636;text-decoration:underline;}
+ul{list-style:none;}
+input,select,button{font:12px Verdana,Arial,Tahoma;vertical-align:middle;}
+.wp{ width:962px; margin: 0px auto;overflow:hidden;}
+.c:after{ content:'\20'; display:block; clear:both;height:0px;}
+.c{ *zoom:1; }
+.l{ float: left; }
+.r{ float: right;}
+.wp{width:1000px;margin:0 auto;}
+
+.content{background:url(top.jpg) no-repeat center 0px;}
+.head{width:1000px;height:443px;margin:0 auto;position:relative; }
+.head div{position:absolute;right:15px;top:30px;z-index:10;}
+.head .fifa{padding:35px 0 0 150px;}
+.head .dajiang{padding:10px 0 0 25px;}
+.head .where{padding:10px 0 0 175px;}
+.head .time{padding:5px 0 0 90px;}
+
+.main{background:#e1eea4;padding:40px 50px 40px;width:900px;margin:0 auto;}
+.top_title{padding:12px 30px;background:#d5e392;font-size:14px;color:#226c31;line-height:28px;}
+.award{width:261px;height:63px;margin:18px 0 16px; background:url(tit_bg.png) no-repeat;}
+.award h2{padding:22px 0 0 73px;}
+.award_list ul li{position:relative;width:210px;height:220px;float:left;margin-right:15px; overflow:hidden; background:#d5e392;text-align:center;}
+.award_list p{color:#be0012;font-size:14px;padding:0 10px;text-align:left;}
+.award_list ul li div{position:absolute;left:0;top:0;z-index:10;}
+.way div span{float:left;display:block;width:778px;}
+.way .index{width:34px;height:23px;padding:2px 0 0 8px;font-weight:bold;color:#fff; background:url(jian.png) no-repeat 0 7px;}
+
+.example table{background:#c1d173;}
+.example table td{width:200px;height:120px;background:#d5e392;}
+.example .xuan{vertical-align:top;color:#226c31;padding:15px 0 0 22px;width:178px;height:105px;}
+.example p{font-weight:bold;font-size:14px;}
+
+.btn{padding:20px 0 60px;text-align:center;width:1000px;margin:0 auto;}
+
+
+
+
+
